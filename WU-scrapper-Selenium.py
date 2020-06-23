@@ -77,11 +77,6 @@ if driver.find_element_by_xpath("//*[@id='btnShowAll']"):
         allOgloszenia = re.sub('<input.*type="hidden".*?/>', "", str(allOgloszenia.prettify()))
         allWiadomosci = re.sub('<input.*type="hidden".*?/>', "", str(allWiadomosci.prettify()))
 
-        ogloszenia = re.sub('Jolanta ......|Monika .............', " [Classified]", ogloszenia)
-        wiadomosci = re.sub(
-            '[0-9][0-9][0-9]&nbsp;|&nbsp;[0-9][0-9][0-9]|[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]',
-            " [Classified]", wiadomosci)
-
         text_file.write("Scraping done on " + time.strftime('%c') + "\n<br>" + str(
             ogloszenia.replace('none', 'block;')) + "<br>" + str(
             wiadomosci.replace('none', 'block;')))
